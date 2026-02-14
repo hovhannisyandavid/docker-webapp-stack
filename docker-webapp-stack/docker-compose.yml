@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  web:
+    build: ./app
+    container_name: webapp
+    ports:
+      - "8080:80"
+    volumes:
+      - web_content:/usr/share/nginx/html
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.6
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  web_content:
+  db_data:
