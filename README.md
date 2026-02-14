@@ -11,7 +11,7 @@ ________________________________________
 Architecture
 The stack includes:
 •	Web Application (containerized)
-•	Database service (if included in your stack, e.g., MariaDB or PostgreSQL)
+•	Database service (MariaDB)
 •	Docker network for internal communication
 •	Persistent volumes for data retention
 Components
